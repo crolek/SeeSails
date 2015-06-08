@@ -35,7 +35,7 @@ module.exports.routes = {
   '/': {
     view: 'homepage'
   },
-  "/singlepage/:pageNumber": "PageController.getSinglePage"
+  "/singlepage/:pageToShow": "PageController.getSinglePage"
 
   /***************************************************************************
   *                                                                          *

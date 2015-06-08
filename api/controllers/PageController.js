@@ -7,11 +7,15 @@
 
 module.exports = {
 	getSinglePage: function(req, res){
-		Page.find({ where: { id: 1 } }).exec(function pageQuery(err, pageNumber){
-console.log("pageNumber: ");
-console.log(pageNumber);
+		var pageToShow = req.param("pageToShow");
+		Page.find({ where: { id: pageToShow } }).exec(function pageQuery(err, pageContext){
+/*console.log("PageToShow: " + pageToShow);
+console.log("pageContext: ");
+console.log(pageContext);*/
+			pageContext[0].previousPage = parseInt(pageToShow, 10) - 1;
+			pageContext[0].nextPage = parseInt(pageToShow, 10) + 1;
 			return res.view("singlepage", {
-				pageContext: pageNumber[0]
+				pageContext: pageContext[0]
 			});
 		});
 	}
