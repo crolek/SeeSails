@@ -7,10 +7,11 @@
 
 module.exports = {
 	getSinglePage: function(req, res){
-		Page.find().exec(function pageQuery(err, pageNumber){
-console.log("pageNumber: " + pageNumber);
-			return res.view("singlepage/" + 1, {
-				pageContext: pageNumber
+		Page.find({ where: { id: 1 } }).exec(function pageQuery(err, pageNumber){
+console.log("pageNumber: ");
+console.log(pageNumber);
+			return res.view("singlepage", {
+				pageContext: pageNumber[0]
 			});
 		});
 	}
