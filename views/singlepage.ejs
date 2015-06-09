@@ -1,23 +1,44 @@
 <!-- Latest compiled and minified CSS -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
 
-<div class="container-fluid">
-	<div class="row text-center">
-		<h1><%= pageContext.title %></h1>
-		<p><%= pageContext.content %></p>
+<style>
+
+	div {
+		font-size: 18px;
+	}
+	.margin-top-15 {
+		margin-top: 15px;
+	}
+
+	.margin-top-50 {
+		margin-top: 50px;
+	}
+
+	.content-container {
+		min-height: 400px;
+	}
+</style>
+<div class="container-fluid ">
+	<div class="row margin-top-15">
+		<div class="col-md-8 col-md-offset-2 content-container">
+			<h1 class="text-center"><%= pageContext.title %></h1>
+			<div class="margin-top-15 col-md-8 col-md-offset-2">
+				<%- pageContext.content %>
+			</div>
+		</div>
+	</div>
+	<div class="row margin-top-15">
+		<div class="col-md-1 col-md-offset-2">
+			<a href="/singlepage/<%= pageContext.previousPage %>">Previous Page</a>
+		</div>
+		<div class="col-md-1 col-md-offset-6">
+			<a href="/singlepage/<%= pageContext.nextPage %>">Next Page</a>
+		</div>
 	</div>
 </div>
 
-<div class="row">
-	<div class="col-md-1 col-md-offset-2">
-		<a href="/singlepage/<%= pageContext.previousPage %>">Previous Page</a>
-	</div>
-	<div class="col-md-1 col-md-offset-6">
-		<a href="/singlepage/<%= pageContext.nextPage %>">Next Page</a>
-	</div>
-</div>
 
-<pre style="margin-top: 15px;">
+<pre class="margin-top-50">
 <%= JSON.stringify(pageContext) %>
 </pre>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
