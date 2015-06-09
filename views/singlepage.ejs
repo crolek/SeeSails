@@ -1,8 +1,26 @@
-<div>
-	sherpa
-	<h1><%= pageContext.title %></h1>
-	<p><%= pageContext.content %></p>
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+
+<div class="container-fluid">
+	<div class="row text-center">
+		<h1><%= pageContext.title %></h1>
+		<p><%= pageContext.content %></p>
+	</div>
 </div>
 
-<p><a href="/singlepage/<%= pageContext.previousPage %>">Previous Page</a><p>
-<p><a href="/singlepage/<%= pageContext.nextPage %>">Next Page</a><p>
+<div class="row">
+	<div class="col-md-1 col-md-offset-2">
+		<a href="/singlepage/<%= pageContext.previousPage %>">Previous Page</a>
+	</div>
+	<div class="col-md-1 col-md-offset-6">
+		<a href="/singlepage/<%= pageContext.nextPage %>">Next Page</a>
+	</div>
+</div>
+
+<pre style="margin-top: 15px;">
+<%= JSON.stringify(pageContext) %>
+</pre>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
